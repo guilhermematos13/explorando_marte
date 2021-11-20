@@ -1,15 +1,19 @@
 package enums;
 
 public enum DirectionEnum {
-	NORTH(0), WEST(90),SOUTH(180),EAST(270);
-	
-	private DirectionEnum(int angle) {
-		this.angle = angle;
+
+	N("NORTH"),
+	W("WEST"),
+	S("SOUTH"),
+	E("EAST");
+
+	private String description;
+
+	private DirectionEnum(String description) {
+		this.description = description;
 	}
 	
-	private int angle;
-	
-	public int getAngle() {
-		return angle;
+	public String getDescription() {
+		return description;
 	}
 }

@@ -4,6 +4,7 @@ public class Position {
 	// Variables
 	private int x;
 	private int y;
+	private Direction direction;
 	
 	//Getters and Setters
 	public int getX() {
@@ -21,17 +22,21 @@ public class Position {
 	public void setY(int y) {
 		this.y = y;
 	}
+	
+	public Direction getDirection() {
+		return direction;
+	}
 
-	//Contructor
-	public Position(int x, int y) {
-		super();
+	//Constructor
+	public Position(int x, int y, Direction direction) {
 		this.x = x;
 		this.y = y;
+		this.direction = direction;
 	}
 
 	// Return in view
 	@Override
 	public String toString() {
-		return "Posição: " + x + ", " + y;
+		return  x + " " + y + " " + direction;
 	}
 }
