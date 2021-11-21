@@ -13,6 +13,7 @@ public class Main {
 		int[] inputHighland = null;
 		int[] inputProbePosition = null;
 		String inputProbeDirection = null;
+		char[] inputMoveInstructions = null;
 		Input input = new Input();
 		inputHighland = input.useInputNumberArray("Insira o tamanho do planalto no formato "
 				+ "x, y \n Exemplo: 0 0");
@@ -26,8 +27,13 @@ public class Main {
 		inputProbeDirection = input.useInputString("Insira a direção que da sonda de acordo com a "
 				+ "rosa dos ventos \n exemplo:\n N - North \n S - South \n E - East \n W - West");
 		
-		System.out.println("Position Probe: " + inputProbePosition[0] + " " + inputProbePosition[1]);
-		System.out.println(inputProbeDirection);
+		System.out.println("Position Probe: " + inputProbePosition[0] + " " + inputProbePosition[1] + " " + 
+		inputProbeDirection.toUpperCase());
+		
+		inputMoveInstructions = input.useInputTextArray("Insira as instruções de movimentação para a sonda"
+				+ "\n Opções: \n L = Left, R = Right, M = Move \n Exemplo: \n LLMRLMRLMLMLMR");
+		
+//		highland.moveProbes(null, inputMoveInstructions);
 		
 		
 		//try catch sondas 
