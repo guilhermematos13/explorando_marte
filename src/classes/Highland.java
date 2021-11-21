@@ -1,7 +1,8 @@
 package classes;
 
 public class Highland {
-	private int rows, columns;
+	private int rows;
+	private int columns;
 	
 	// Getters and Setters
 	public int getRows() {
@@ -20,7 +21,7 @@ public class Highland {
 		this.columns = columns;
 	}
 	
-	//Contructor
+	//Constructor
 		public Highland(int rows, int columns) {
 			super();
 			this.rows = rows;
