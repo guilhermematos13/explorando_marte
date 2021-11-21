@@ -1,10 +1,8 @@
 package classes;
-
 public class Probe {
 	//Variables
 	private Position startPosition;
 	private Position endPosition;
-	private Highland highland;
 	
 	//Getters and Setters
 	public Position getStartPosition() {
@@ -19,17 +17,13 @@ public class Probe {
 	public void setEndPosition(Position endPosition) {
 		this.endPosition = endPosition;
 	}
-	protected Highland getHighland() {
-		return highland;
-	}
 	
 	//Constructor
-	public Probe(Highland highland) {
-		this.highland = highland;
+	public Probe() {
 		startPosition = null;
 		endPosition = null;
 	}
-	
+		
 	// Return in view
 	@Override
 	public String toString() {

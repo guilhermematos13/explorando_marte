@@ -2,9 +2,12 @@ package shared;
 
 import javax.swing.JOptionPane;
 
-public class Input {
-	public int[] inputValue;
-	public int[] useInput(String message, boolean formatInt) {
+
+
+public class Input {	
+	
+	// Input/Format number
+	public int[] useInputNumberArray(String message) {
 	boolean inputAccepted = false;
 	while(!inputAccepted) {
 	  try {
@@ -17,7 +20,7 @@ public class Input {
 	    } else {
 	      inputAccepted = true;
 	      value = value.replace(" ", "");
-	      if(formatInt) {
+	      
 	    	  int[] formatValue = new int[value.length()];
 
 			    for (int i = 0; i < value.length(); i++){
@@ -26,7 +29,6 @@ public class Input {
 			    	}
 			    }
 			    return formatValue;
-	      }
 	     
 	    }
 	  } catch(Exception e) {
@@ -36,5 +38,31 @@ public class Input {
 	}
 	return null;
 	}
+	
+	
+	// Input de String
+	public String useInputString(String message) {
+		boolean inputAccepted = false;
+		while(!inputAccepted) {
+		  try {
+		    String value = JOptionPane.showInputDialog
+		    		(message);
+		    
+		    if (value.isEmpty()) {
+		    	JOptionPane.showMessageDialog(null, "Insira as informações!");
+		    	
+		    } else {
+		      inputAccepted = true;
+		      value = value.replace(" ", "");
+		      return value;
+		     
+		    }
+		  } catch(Exception e) {
+			  JOptionPane.showMessageDialog(null, "Algo deu errado!");
+			  System.exit(0);
+		  }
+		}
+		return null;
+		}
 	
 }
