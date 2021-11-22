@@ -17,9 +17,10 @@ public class Direction {
 	}
 	
 	//Constructor
-	public Direction(DirectionEnum direction) {
-		this.direction = direction;
+	public Direction(String direction) {
+		this.direction = DirectionEnum.valueOf(direction);
 	}
+	
 	
 	// Return in view
 	@Override

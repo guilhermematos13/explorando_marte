@@ -36,7 +36,9 @@ public class Highland {
 	}
 	
 	//Create moving probe
-	public Probe moveProbes(Position startPosition, String[] moveInstruction) {
+	public Probe moveProbes(Position startPosition, char[] moveInstruction) {
+		System.out.println(startPosition);
+		System.out.println(moveInstruction);
 		return null;
 		
 	}

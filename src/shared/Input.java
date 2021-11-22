@@ -52,7 +52,7 @@ public class Input {
 					
 					char[] transformValue = new char[value.length()];
 					for(int i = 0; i < value.length(); i++) {
-						transformValue[i] = value.charAt(i);
+						transformValue[i] = value.toUpperCase().charAt(i);
 					}
 				        
 					return transformValue;

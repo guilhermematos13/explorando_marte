@@ -15,6 +15,7 @@ public class Main {
 		String inputProbeDirection = null;
 		char[] inputMoveInstructions = null;
 		Input input = new Input();
+		
 		inputHighland = input.useInputNumberArray("Insira o tamanho do planalto no formato "
 				+ "x, y \n Exemplo: 0 0");
 				
@@ -33,14 +34,16 @@ public class Main {
 		inputMoveInstructions = input.useInputTextArray("Insira as instruções de movimentação para a sonda"
 				+ "\n Opções: \n L = Left, R = Right, M = Move \n Exemplo: \n LLMRLMRLMLMLMR");
 		
-//		highland.moveProbes(null, inputMoveInstructions);
+		Direction direction = new Direction(inputProbeDirection);
+		Position position = new Position(inputProbePosition[0], inputProbePosition[1], direction);
+		highland.moveProbes(position, inputMoveInstructions);
 		
 		
 		//try catch sondas 
 		//primeira posição da sonda
 		Probe probe = new Probe();
-		Direction direction = new Direction(DirectionEnum.S);
-		Position position = new Position(0,0, direction);
+		
+		
 		probe.setStartPosition(position);
 
 		
