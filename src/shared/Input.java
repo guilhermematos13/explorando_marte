@@ -79,7 +79,7 @@ public class Input {
 		    } else {
 		      inputAccepted = true;
 		      value = value.replace(" ", "");
-		      return value;
+		      return value.toUpperCase();
 		     
 		    }
 		  } catch(Exception e) {
