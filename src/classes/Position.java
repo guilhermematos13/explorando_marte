@@ -5,7 +5,7 @@ public class Position {
 	private int x;
 	private int y;
 	private Direction direction;
-	
+
 	//Getters and Setters
 	public int getX() {
 		return x;
@@ -25,6 +25,10 @@ public class Position {
 	
 	public Direction getDirection() {
 		return direction;
+	}
+	
+	public void setDirection(Direction direction) {
+		this.direction = direction;
 	}
 
 	//Constructor

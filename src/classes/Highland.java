@@ -38,18 +38,21 @@ public class Highland {
 	//Create moving probe
 	public Probe moveProbes(Position startPosition, char[] moveInstruction) {
 		
+		Position preparedPosition = startPosition;
 		for(char instruction : moveInstruction) {
 			switch(instruction) {
 				case 'L':
-					this.moveLeft(startPosition);
+					preparedPosition.setDirection(this.moveLeft(preparedPosition));
 					break;
 				case 'R':
-					this.moveRight(startPosition);
+					preparedPosition.setDirection(this.moveRight(preparedPosition));
 					break;
 				case 'M':
-					this.moving(startPosition);
+					this.moving(preparedPosition);
 			}
 		}
+		System.out.println(startPosition);
+		System.out.println(preparedPosition);
 		
 //		x não pode ser maior que collumn
 //		y não pode ser maior que row
@@ -88,34 +91,43 @@ public class Highland {
 		
 	}
 	
-	public String moveLeft(Position startPosition) {
+	public Direction moveLeft(Position startPosition) {
 		Direction direction = startPosition.getDirection();
+		
 			switch(direction.toString()) {
 				case "N":
-					return "W";
+					Direction directionInstanceN = new Direction("W");
+					return directionInstanceN;
 				case "W":
-					return "S";
+					Direction directionInstanceW = new Direction("S");
+					return directionInstanceW;
 				case "S":
-					return "E";
+					Direction directionInstanceS = new Direction("E");
+					return directionInstanceS;
 				case "E":
-					return "N";
+					Direction directionInstanceE = new Direction("N");
+					return directionInstanceE;
 			}
-		return direction.toString();
+		return direction;
 		}
 	
-	public String moveRight(Position startPosition) {
+	public Direction moveRight(Position startPosition) {
 		Direction direction = startPosition.getDirection();
 			switch(direction.toString()) {
 				case "N":
-					return "E";
+					Direction directionInstanceN = new Direction("E");
+					return directionInstanceN;
 				case "W":
-					return "N";
+					Direction directionInstanceW = new Direction("N");
+					return directionInstanceW;
 				case "S":
-					return "W";
+					Direction directionInstanceS = new Direction("W");
+					return directionInstanceS;
 				case "E":
-					return "S";
+					Direction directionInstanceE = new Direction("S");
+					return directionInstanceE;
 			}
-		return direction.toString();
+		return direction;
 		
 	}
 	
