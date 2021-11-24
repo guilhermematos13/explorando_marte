@@ -6,7 +6,7 @@ public class Position {
 	private int y;
 	private Direction direction;
 
-	//Getters and Setters
+	// Getters and Setters
 	public int getX() {
 		return x;
 	}
@@ -22,16 +22,16 @@ public class Position {
 	public void setY(int y) {
 		this.y = y;
 	}
-	
+
 	public Direction getDirection() {
 		return direction;
 	}
-	
+
 	public void setDirection(Direction direction) {
 		this.direction = direction;
 	}
 
-	//Constructor
+	// Constructor
 	public Position(int x, int y, Direction direction) {
 		this.x = x;
 		this.y = y;
@@ -41,6 +41,6 @@ public class Position {
 	// Return in view
 	@Override
 	public String toString() {
-		return  x + " " + y + " " + direction;
+		return x + " " + y + " " + direction;
 	}
 }

@@ -2,12 +2,11 @@ package classes;
 
 import enums.DirectionEnum;
 
-
 public class Direction {
-	//Variables
+	// Variables
 	DirectionEnum direction;
 
-	//Getters and Setters
+	// Getters and Setters
 	public DirectionEnum getDirection() {
 		return direction;
 	}
@@ -15,13 +14,12 @@ public class Direction {
 	public void setDirection(DirectionEnum direction) {
 		this.direction = direction;
 	}
-	
-	//Constructor
+
+	// Constructor
 	public Direction(String direction) {
 		this.direction = DirectionEnum.valueOf(direction);
 	}
-	
-	
+
 	// Return in view
 	@Override
 	public String toString() {
