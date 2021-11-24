@@ -48,52 +48,18 @@ public class Highland {
 					preparedPosition.setDirection(this.moveRight(preparedPosition));
 					break;
 				case 'M':
-					this.moving(preparedPosition);
-			}
+					this.moving(startPosition);
+				}
 		}
-		System.out.println(startPosition);
 		System.out.println(preparedPosition);
-		
-//		x não pode ser maior que collumn
-//		y não pode ser maior que row
-		
-		
-		//0 = N
-		// se ele ta no North e vira pra esquerda, ele vai pra 90 (West)
-		// se ele ta no North e vira pra direita, ele vai pra 270 (East)
-		//x, y +1
-
-		//90 = W 
-		// se ele ta no West e vira pra esquerda, ele vai pra 180 (South)
-		// se ele ta no West e vira pra direita, ele vai pra 0 (North)
-		//x - 1, y
-
-
-		//180 = S
-		// se ele ta no West e vira pra esquerda, ele vai pra 270 (East)
-		// se ele ta no West e vira pra direita, ele vai pra 90 (West)
-		//x , y - 1
-
-
-		//270 = E
-		// se ele ta no West e vira pra esquerda, ele vai pra 0 (North)
-		// se ele ta no West e vira pra direita, ele vai pra 180 (South)
-		//x + 1, y
-
-		
-		// loop para ele se mover até o fim das instruções
-		
-		//pegar o x, y e a direção final
-		
-		
-		
+								
 		return null;
 		
 	}
 	
+	// Logic for direction left
 	public Direction moveLeft(Position startPosition) {
 		Direction direction = startPosition.getDirection();
-		
 			switch(direction.toString()) {
 				case "N":
 					Direction directionInstanceN = new Direction("W");
@@ -109,8 +75,9 @@ public class Highland {
 					return directionInstanceE;
 			}
 		return direction;
-		}
+	}
 	
+	// Logic for direction right
 	public Direction moveRight(Position startPosition) {
 		Direction direction = startPosition.getDirection();
 			switch(direction.toString()) {
@@ -131,16 +98,34 @@ public class Highland {
 		
 	}
 	
+	// Logic movimentation
 	public void moving(Position startPosition) {
 		int x = startPosition.getX();
 		int y = startPosition.getY();
+		String direction = startPosition.getDirection().toString();
 		if ( x >= 0 && x <= this.columns && y >= 0 && y <= this.rows) {
-			
+			switch(direction) {				
+				case "N":
+					startPosition.setY(y + 1);
+					break;
+				case "W":
+					startPosition.setX(x - 1);
+					break;
+				case "S":
+					startPosition.setY(y - 1);
+					break;
+				case "E":
+					startPosition.setX(x + 1);
+					break;
+			}
 		}
 		else {
-			System.out.println("A sonda explodiu");
+			System.out.println("A sonda explodiu em: " + startPosition);
+			System.exit(0);
 		}
+	
 	}
+	
 	//Return probe
 	public ArrayList<Probe> returnProbe() {
 		return probes;
