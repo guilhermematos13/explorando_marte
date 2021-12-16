@@ -7,7 +7,7 @@ public class Highland {
 	private int rows;
 	private int columns;
 	DirectionEnum direction;
-
+	
 	private ArrayList<Probe> probes = new ArrayList<>();
 
 	// Getters and Setters
