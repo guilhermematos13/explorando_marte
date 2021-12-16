@@ -48,8 +48,8 @@ public class Highland {
 	}
 
 	// Create moving probe
-	public Position moveProbes(Position startPosition, Position endPosition , char[] moveInstruction) {
-		Position preparedPosition = startPosition;
+	public Position moveProbes(Position position, char[] moveInstruction) {
+		Position preparedPosition = position;
 		for (char instruction : moveInstruction) {
 			switch (instruction) {
 			case 'L':
@@ -59,7 +59,7 @@ public class Highland {
 				preparedPosition.setDirectionEnum(this.moveRight(preparedPosition));
 				break;
 			case 'M':
-				this.moving(startPosition, endPosition);
+				this.moving(position);
 			}
 		}
 		
@@ -108,27 +108,27 @@ public class Highland {
 	}
 
 	// Motion logic
-	public void moving(Position startPosition, Position endPosition) {
-		int x = startPosition.getX();
-		int y = startPosition.getY();
-		String direction = startPosition.getDirection().toString();
+	public void moving(Position position) {
+		int x = position.getX();
+		int y = position.getY();
+		String directionEnum = position.getDirection().toString();
 		if (x >= 0 && x <= this.columns && y >= 0 && y <= this.rows) {
-			switch (direction) {
+			switch (directionEnum) {
 			case "N":
-				endPosition.setY(y + 1);
+				position.setY(y + 1);
 				break;
 			case "W":
-				endPosition.setX(x - 1);
+				position.setX(x - 1);
 				break;
 			case "S":
-				endPosition.setY(y - 1);
+				position.setY(y - 1);
 				break;
 			case "E":
-				endPosition.setX(x + 1);
+				position.setX(x + 1);
 				break;
 			}
 		} else {
-			System.out.println("A sonda explodiu em: " + endPosition);
+			System.out.println("A sonda explodiu em: " + position);
 			System.exit(0);
 		}
 	}

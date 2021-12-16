@@ -31,12 +31,12 @@ public class Main {
 		
 		
 		Position position = new Position(inputProbePosition[0], inputProbePosition[1], DirectionEnum.valueOf(inputProbeDirection));
-		Position endPosition = highland.moveProbes(position, position, inputMoveInstructions);
+		Position positionMoving = highland.moveProbes(position, inputMoveInstructions);
 
 		JOptionPane.showMessageDialog(null,
-				"Informações da exploração de marte\n\n\n" + highland + "\n\nPosition inicial da sonda: \n"
+				"Informações da exploração de marte\n\n" + highland + "\n\nPosition inicial da sonda: \n"
 						+ inputProbePosition[0] + " " + inputProbePosition[1] + " " + inputProbeDirection.toUpperCase()
-						+ "\n\nPosição Final foi: \n" + endPosition
+						+ "\n\nPosição Final foi: \n" + positionMoving
 
 		);
 
