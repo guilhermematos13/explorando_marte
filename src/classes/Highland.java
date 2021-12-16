@@ -7,7 +7,7 @@ public class Highland {
 	private int rows;
 	private int columns;
 	DirectionEnum direction;
-	
+
 	private ArrayList<Probe> probes = new ArrayList<>();
 
 	// Getters and Setters
@@ -19,7 +19,7 @@ public class Highland {
 	public void setDirection(DirectionEnum direction) {
 		this.direction = direction;
 	}
-	
+
 	public int getRows() {
 		return rows;
 	}
@@ -44,7 +44,20 @@ public class Highland {
 
 	// Create probes
 	public void createProbes(Probe probe) {
+		this.collisionValidate(probe);
 		this.probes.add(probe);
+	}
+
+	// Collision validate
+	public void collisionValidate(Probe probe) {
+		for (Probe probeItem : this.probes) {
+			System.out.println(probeItem + " " + probe);
+			if (probeItem.getPosition().getX() == probe.getPosition().getX()
+					&& probeItem.getPosition().getY() == probe.getPosition().getY()) {
+				System.out.println("A sonda colidiu com outra sonda");
+				System.exit(0);
+			}
+		}
 	}
 
 	// Create moving probe
@@ -73,7 +86,7 @@ public class Highland {
 		DirectionEnum direction = startPosition.getDirection();
 		switch (direction.toString()) {
 		case "N":
-			DirectionEnum directionInstanceN =  DirectionEnum.W;
+			DirectionEnum directionInstanceN = DirectionEnum.W;
 			return directionInstanceN;
 		case "W":
 			DirectionEnum directionInstanceW = DirectionEnum.S;
@@ -96,7 +109,7 @@ public class Highland {
 			DirectionEnum directionInstanceN = DirectionEnum.E;
 			return directionInstanceN;
 		case "W":
-			DirectionEnum directionInstanceW =  DirectionEnum.N;
+			DirectionEnum directionInstanceW = DirectionEnum.N;
 			return directionInstanceW;
 		case "S":
 			DirectionEnum directionInstanceS = DirectionEnum.W;
@@ -114,7 +127,7 @@ public class Highland {
 		int x = position.getX();
 		int y = position.getY();
 		String directionEnum = position.getDirection().toString();
-		if (x >= 0 && x <= this.columns && y >= 0 && y <= this.rows) {
+		if (x >= 0 && x < this.columns && y >= 0 && y < this.rows) {
 			switch (directionEnum) {
 			case "N":
 				position.setY(y + 1);
@@ -130,7 +143,7 @@ public class Highland {
 				break;
 			}
 		} else {
-			System.out.println("A sonda explodiu em: " + position);
+			System.out.println("A sonda explodiu " + position);
 			System.exit(0);
 		}
 	}

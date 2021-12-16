@@ -47,6 +47,9 @@ public class Main {
 			case "N":
 				flowContinue = false;
 				break;
+			default:
+				flowContinue = false;
+				break;
 			}
 		}
 
