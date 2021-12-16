@@ -1,6 +1,6 @@
 package classes;
-import enums.DirectionEnum;
 
+import enums.DirectionEnum;
 
 public class Position {
 	// Variables
@@ -29,7 +29,7 @@ public class Position {
 		return direction;
 	}
 
-	public void setDirectionEnum (DirectionEnum direction) {
+	public void setDirectionEnum(DirectionEnum direction) {
 		this.direction = direction;
 	}
 

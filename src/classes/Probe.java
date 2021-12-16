@@ -3,8 +3,6 @@ package classes;
 public class Probe {
 	// Variables
 	private Position position;
-	
-
 
 	// Getters and Setters
 	public Position getPosition() {
@@ -14,7 +12,6 @@ public class Probe {
 	public void setPosition(Position position) {
 		this.position = position;
 	}
-
 
 	// Constructor
 	public Probe(Position position) {

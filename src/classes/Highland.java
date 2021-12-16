@@ -148,8 +148,8 @@ public class Highland {
 	// Return probe
 	public String returnProbe() {
 		StringBuilder builder = new StringBuilder();
-		for(Probe probeItem : this.probes) {
-			builder.append(probeItem + "\n" );
+		for (Probe probeItem : this.probes) {
+			builder.append(probeItem + "\n");
 		}
 		return builder.toString();
 	}

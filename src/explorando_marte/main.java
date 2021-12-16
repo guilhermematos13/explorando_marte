@@ -51,7 +51,6 @@ public class Main {
 		}
 
 		System.out.println("Posições finais das sondas foram: \n" + highland.returnProbe());
-		
 
 	}
 }
