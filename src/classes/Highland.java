@@ -62,7 +62,9 @@ public class Highland {
 				this.moving(position);
 			}
 		}
-		
+		Probe probe = new Probe(preparedPosition);
+		this.createProbes(probe);
+		System.out.println(this.probes);
 		return preparedPosition;
 	}
 

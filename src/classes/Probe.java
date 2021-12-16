@@ -17,8 +17,8 @@ public class Probe {
 
 
 	// Constructor
-	public Probe() {
-		position = null;
+	public Probe(Position position) {
+		this.position = position;
 	}
 
 	// Return in view
