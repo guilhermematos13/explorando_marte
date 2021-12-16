@@ -146,8 +146,12 @@ public class Highland {
 	}
 
 	// Return probe
-	public ArrayList<Probe> returnProbe() {
-		return (ArrayList<Probe>) probes;
+	public String returnProbe() {
+		StringBuilder builder = new StringBuilder();
+		for(Probe probeItem : this.probes) {
+			builder.append(probeItem + "\n" );
+		}
+		return builder.toString();
 	}
 
 	// Return in view
