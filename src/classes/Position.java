@@ -1,10 +1,12 @@
 package classes;
+import enums.DirectionEnum;
+
 
 public class Position {
 	// Variables
 	private int x;
 	private int y;
-	private Direction direction;
+	private DirectionEnum direction;
 
 	// Getters and Setters
 	public int getX() {
@@ -23,16 +25,16 @@ public class Position {
 		this.y = y;
 	}
 
-	public Direction getDirection() {
+	public DirectionEnum getDirection() {
 		return direction;
 	}
 
-	public void setDirection(Direction direction) {
+	public void setDirectionEnum (DirectionEnum direction) {
 		this.direction = direction;
 	}
 
 	// Constructor
-	public Position(int x, int y, Direction direction) {
+	public Position(int x, int y, DirectionEnum direction) {
 		this.x = x;
 		this.y = y;
 		this.direction = direction;

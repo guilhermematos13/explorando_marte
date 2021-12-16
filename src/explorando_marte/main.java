@@ -2,9 +2,9 @@ package explorando_marte;
 
 import javax.swing.JOptionPane;
 
-import classes.Direction;
 import classes.Highland;
 import classes.Position;
+import enums.DirectionEnum;
 import shared.Input;
 
 public class Main {
@@ -28,10 +28,10 @@ public class Main {
 
 		inputMoveInstructions = input.useInputTextArray("Insira as instruções de movimentação para a sonda"
 				+ "\n Opções: \n L = Left, R = Right, M = Move \n Exemplo: \n LLMRLMRLMLMLMR");
-
-		Direction direction = new Direction(inputProbeDirection);
-		Position position = new Position(inputProbePosition[0], inputProbePosition[1], direction);
-		Position endPosition = highland.moveProbes(position, inputMoveInstructions);
+		
+		
+		Position position = new Position(inputProbePosition[0], inputProbePosition[1], DirectionEnum.valueOf(inputProbeDirection));
+		Position endPosition = highland.moveProbes(position, position, inputMoveInstructions);
 
 		JOptionPane.showMessageDialog(null,
 				"Informações da exploração de marte\n\n\n" + highland + "\n\nPosition inicial da sonda: \n"

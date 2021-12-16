@@ -1,14 +1,25 @@
 package classes;
 
 import java.util.ArrayList;
+import enums.DirectionEnum;
 
 public class Highland {
 	private int rows;
 	private int columns;
+	DirectionEnum direction;
 
 	private ArrayList<Probe> probes = new ArrayList<>();
 
 	// Getters and Setters
+
+	public DirectionEnum getDirection() {
+		return direction;
+	}
+
+	public void setDirection(DirectionEnum direction) {
+		this.direction = direction;
+	}
+	
 	public int getRows() {
 		return rows;
 	}
@@ -37,60 +48,59 @@ public class Highland {
 	}
 
 	// Create moving probe
-	public Position moveProbes(Position startPosition, char[] moveInstruction) {
+	public Position moveProbes(Position startPosition, Position endPosition , char[] moveInstruction) {
 		Position preparedPosition = startPosition;
 		for (char instruction : moveInstruction) {
 			switch (instruction) {
 			case 'L':
-				preparedPosition.setDirection(this.moveLeft(preparedPosition));
+				preparedPosition.setDirectionEnum(this.moveLeft(preparedPosition));
 				break;
 			case 'R':
-				preparedPosition.setDirection(this.moveRight(preparedPosition));
+				preparedPosition.setDirectionEnum(this.moveRight(preparedPosition));
 				break;
 			case 'M':
-				this.moving(startPosition);
+				this.moving(startPosition, endPosition);
 			}
 		}
-		// OBS: Aqui eu chamaria o createProbes, mas eu não consegui passar o tipo Probe
-		// para ele
+		
 		return preparedPosition;
 	}
 
 	// Logic for direction left
-	public Direction moveLeft(Position startPosition) {
-		Direction direction = startPosition.getDirection();
+	public DirectionEnum moveLeft(Position startPosition) {
+		DirectionEnum direction = startPosition.getDirection();
 		switch (direction.toString()) {
 		case "N":
-			Direction directionInstanceN = new Direction("W");
+			DirectionEnum directionInstanceN =  DirectionEnum.W;
 			return directionInstanceN;
 		case "W":
-			Direction directionInstanceW = new Direction("S");
+			DirectionEnum directionInstanceW = DirectionEnum.S;
 			return directionInstanceW;
 		case "S":
-			Direction directionInstanceS = new Direction("E");
+			DirectionEnum directionInstanceS = DirectionEnum.E;
 			return directionInstanceS;
 		case "E":
-			Direction directionInstanceE = new Direction("N");
+			DirectionEnum directionInstanceE = DirectionEnum.N;
 			return directionInstanceE;
 		}
 		return direction;
 	}
 
 	// Logic for direction right
-	public Direction moveRight(Position startPosition) {
-		Direction direction = startPosition.getDirection();
+	public DirectionEnum moveRight(Position startPosition) {
+		DirectionEnum direction = startPosition.getDirection();
 		switch (direction.toString()) {
 		case "N":
-			Direction directionInstanceN = new Direction("E");
+			DirectionEnum directionInstanceN = DirectionEnum.E;
 			return directionInstanceN;
 		case "W":
-			Direction directionInstanceW = new Direction("N");
+			DirectionEnum directionInstanceW =  DirectionEnum.N;
 			return directionInstanceW;
 		case "S":
-			Direction directionInstanceS = new Direction("W");
+			DirectionEnum directionInstanceS = DirectionEnum.W;
 			return directionInstanceS;
 		case "E":
-			Direction directionInstanceE = new Direction("S");
+			DirectionEnum directionInstanceE = DirectionEnum.S;
 			return directionInstanceE;
 		}
 		return direction;
@@ -98,27 +108,27 @@ public class Highland {
 	}
 
 	// Motion logic
-	public void moving(Position startPosition) {
+	public void moving(Position startPosition, Position endPosition) {
 		int x = startPosition.getX();
 		int y = startPosition.getY();
 		String direction = startPosition.getDirection().toString();
 		if (x >= 0 && x <= this.columns && y >= 0 && y <= this.rows) {
 			switch (direction) {
 			case "N":
-				startPosition.setY(y + 1);
+				endPosition.setY(y + 1);
 				break;
 			case "W":
-				startPosition.setX(x - 1);
+				endPosition.setX(x - 1);
 				break;
 			case "S":
-				startPosition.setY(y - 1);
+				endPosition.setY(y - 1);
 				break;
 			case "E":
-				startPosition.setX(x + 1);
+				endPosition.setX(x + 1);
 				break;
 			}
 		} else {
-			System.out.println("A sonda explodiu em: " + startPosition);
+			System.out.println("A sonda explodiu em: " + endPosition);
 			System.exit(0);
 		}
 	}
