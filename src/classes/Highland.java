@@ -7,7 +7,6 @@ public class Highland {
 	private int rows;
 	private int columns;
 	DirectionEnum direction;
-
 	private ArrayList<Probe> probes = new ArrayList<>();
 
 	// Getters and Setters
@@ -51,10 +50,9 @@ public class Highland {
 	// Collision validate
 	public void collisionValidate(Probe probe) {
 		for (Probe probeItem : this.probes) {
-			System.out.println(probeItem + " " + probe);
 			if (probeItem.getPosition().getX() == probe.getPosition().getX()
 					&& probeItem.getPosition().getY() == probe.getPosition().getY()) {
-				System.out.println("A sonda colidiu com outra sonda");
+				System.out.println("A sonda colidiu com outra sonda em: " + probe);
 				System.exit(0);
 			}
 		}
@@ -77,7 +75,6 @@ public class Highland {
 		}
 		Probe probe = new Probe(preparedPosition);
 		this.createProbes(probe);
-		System.out.println(this.probes);
 		return preparedPosition;
 	}
 
@@ -127,7 +124,7 @@ public class Highland {
 		int x = position.getX();
 		int y = position.getY();
 		String directionEnum = position.getDirection().toString();
-		if (x >= 0 && x < this.columns && y >= 0 && y < this.rows) {
+		if (x >= 0 && x <= this.columns && y >= 0 && y <= this.rows) {
 			switch (directionEnum) {
 			case "N":
 				position.setY(y + 1);
@@ -143,7 +140,7 @@ public class Highland {
 				break;
 			}
 		} else {
-			System.out.println("A sonda explodiu " + position);
+			System.out.println("A sonda explodiu ao tentar passar o limite do planalto!");
 			System.exit(0);
 		}
 	}

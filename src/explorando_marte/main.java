@@ -1,7 +1,5 @@
 package explorando_marte;
 
-import javax.swing.JOptionPane;
-
 import classes.Highland;
 import classes.Position;
 import enums.DirectionEnum;
@@ -18,7 +16,6 @@ public class Main {
 		String inputContinuation = null;
 		Input input = new Input();
 		Highland highland = null;
-		Position positionMoving = null;
 		boolean flowContinue = true;
 
 		inputHighland = input.useInputNumberArray("Insira o tamanho do planalto no formato " + "x, y \n Exemplo: 0 0");
@@ -37,7 +34,7 @@ public class Main {
 
 			Position position = new Position(inputProbePosition[0], inputProbePosition[1],
 					DirectionEnum.valueOf(inputProbeDirection));
-			positionMoving = highland.moveProbes(position, inputMoveInstructions);
+			highland.moveProbes(position, inputMoveInstructions);
 
 			inputContinuation = input.useInputString("Você deseja inserir mais alguma sonda ? \n N = não \n S = sim");
 			switch (inputContinuation) {
@@ -53,12 +50,8 @@ public class Main {
 			}
 		}
 
-		JOptionPane.showMessageDialog(null,
-				"Informações da exploração de marte\n\n" + highland + "\n\n Position inicial da sonda: \n"
-						+ inputProbePosition[0] + " " + inputProbePosition[1] + " " + inputProbeDirection.toUpperCase()
-						+ "\n\nPosição Final foi: \n" + positionMoving
-
-		);
+		System.out.println("Posições finais das sondas foram: \n" + highland.returnProbe());
+		
 
 	}
 }
